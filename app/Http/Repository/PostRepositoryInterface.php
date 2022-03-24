@@ -6,5 +6,5 @@ use App\Models\Post;
 
 interface PostRepositoryInterface
 {
-    public function find($id): Post;
+    public function find($id): ?Post;
 }

@@ -32,7 +32,7 @@ class BaseRepository implements EloquentRepositoryInterface
         return $this->model->create($attributes);
     }
 
-    public function find($id): ?Model
+    public function find(int $id): ?Model
     {
         return $this->model->find($id);
     }

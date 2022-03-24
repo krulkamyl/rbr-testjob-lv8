@@ -13,7 +13,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
         parent::_construct($model);
     }
 
-    public function find($id): Post
+    public function find($id): ?Post
     {
         return $this->model->with('comments')->find($id);
     }

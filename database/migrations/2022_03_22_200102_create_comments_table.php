@@ -19,7 +19,8 @@ class CreateCommentsTable extends Migration
             $table->text('content');
             $table->string('author');
 
-            $table->foreign('post_id')->references('id')->on(config('settings.database_table.posts'));
+            $table->foreign('post_id')->references('id')->on(config('settings.database_table.posts'))->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ interface EloquentRepositoryInterface
 
     public function create(array $attributes) : Model;
 
-    public function find($id): ?Model;
+    public function find(int $id): ?Model;
 
     public function update(Model $model, array $data): ?Model;
 
