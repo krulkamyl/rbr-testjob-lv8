@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Frontend\CommentController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PostController;
+use App\Http\Controllers\Frontend\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +31,12 @@ Route::middleware(['auth'])->group(function() {
 
     Route::get('posts/{id}', [PostController::class, 'show'])
         ->name('posts.show');
+
+    // COMMENTS
+    Route::get('comments', [CommentController::class, 'index'])
+        ->name('comments.index');
+
+    // USERS
+    Route::get('users', [UserController::class, 'index'])
+        ->name('users.index');
 });

@@ -4,13 +4,14 @@ namespace App\Http\Repository;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface EloquentRepositoryInterface
 {
 
     public function all(): Collection;
 
-    public function allPaginated(int $limit);
+    public function allPaginated(int $limit): LengthAwarePaginator;
 
     public function create(array $attributes) : Model;
 

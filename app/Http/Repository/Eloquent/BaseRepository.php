@@ -5,6 +5,7 @@ namespace App\Http\Repository\Eloquent;
 use App\Http\Repository\EloquentRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class BaseRepository implements EloquentRepositoryInterface
 {
@@ -21,7 +22,7 @@ class BaseRepository implements EloquentRepositoryInterface
         return $this->model->get();
     }
 
-    public function allPaginated(int $limit)
+    public function allPaginated(int $limit): LengthAwarePaginator
     {
         return $this->model->paginate($limit);
     }

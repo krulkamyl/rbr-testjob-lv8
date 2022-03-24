@@ -35,11 +35,21 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         @auth
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('posts.index') }}">
-                                Posts
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('posts.index') }}">
+                                    Posts
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('comments.index') }}">
+                                    Comments
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('users.index') }}">
+                                    Users
+                                </a>
+                            </li>
 {{--                        <li class="nav-item">--}}
 {{--                            <a class="nav-link" href="{{ route('get.comments') }}">--}}
 {{--                                Comments--}}
