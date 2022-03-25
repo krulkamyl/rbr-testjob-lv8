@@ -178,7 +178,8 @@ return [
         /*
          * Definied by user
          */
-        \App\Providers\RepositoryServiceProvider::class
+        \App\Providers\RepositoryServiceProvider::class,
+        \App\Providers\LocalhostApiHttpServiceProvider::class
 
     ],
 

@@ -2,8 +2,10 @@
 
 namespace App\Console;
 
+use Faker\Factory;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Http;
 
 class Kernel extends ConsoleKernel
 {
@@ -15,7 +17,14 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function() {
+            $faker = Factory::create();
+            echo Http::localhostApi()->post('posts', [
+                'title' => $faker->text(200),
+                'content' => $faker->realText(1500),
+                'author' => $faker->userName().' CRON'
+            ]);
+        })->hourly();
     }
 
     /**
