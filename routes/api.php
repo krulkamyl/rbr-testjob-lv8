@@ -1,8 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\PostController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::resource('posts', PostController::class)->only('index', 'store', 'show', 'update', 'destroy')->middleware('guest');
+Route::resource('comments', CommentController::class)->only('index', 'store', 'show', 'update', 'destroy')->middleware('guest');

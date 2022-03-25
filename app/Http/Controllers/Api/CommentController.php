@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Repository\PostRepositoryInterface;
-use App\Http\Requests\PostRequest;
+use App\Http\Repository\CommentRepositoryInterface;
+use App\Http\Requests\CommentRequest;
 
-class PostController extends Controller
+class CommentController extends Controller
 {
-    private PostRepositoryInterface $postRepository;
+    private CommentRepositoryInterface $commentRepository;
 
-    public function __construct(PostRepositoryInterface $postRepository) {
-        $this->postRepository = $postRepository;
+    public function __construct(CommentRepositoryInterface $commentRepository) {
+        $this->commentRepository = $commentRepository;
     }
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $data = $this->postRepository->all();
+        $data = $this->commentRepository->all();
         if ($data)
             return response()->json([
                 'data' => $data,
@@ -32,12 +32,12 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  PostRequest  $request
+     * @param  CommentRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(PostRequest $request)
+    public function store(CommentRequest $request)
     {
-        $model = $this->postRepository->create($request->validated());
+        $model = $this->commentRepository->create($request->validated());
         if ($model)
             return response()->json([
                 'data' => $model,
@@ -54,7 +54,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $data = $this->postRepository->find($id);
+        $data = $this->commentRepository->find($id);
         if ($data)
             return response()->json([
                 'data' => $data,
@@ -67,16 +67,16 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  PostRequest  $request
+     * @param  CommentRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(PostRequest $request, $id)
+    public function update(CommentRequest $request, $id)
     {
-        $data = $this->postRepository->find($id);
+        $data = $this->commentRepository->find($id);
         if ($data)
             return response()->json([
-                'data' => $this->postRepository->update($data, $request->validated()),
+                'data' => $this->commentRepository->update($data, $request->validated()),
             ], 200);
         else
             return response()->json([], 404);
@@ -90,7 +90,7 @@ class PostController extends Controller
      */
     public function destroy(int $id): \Illuminate\Http\JsonResponse
     {
-        $data = $this->postRepository->find($id);
+        $data = $this->commentRepository->find($id);
         if ($data)
             return response()->json([
                 'is_delete' => $data->delete()
