@@ -17,4 +17,8 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     {
         return $this->model->with('comments')->find($id);
     }
+
+    public function randomPost(): ?Post {
+        return $this->model->select('id')->inRandomOrder()->first();
+    }
 }

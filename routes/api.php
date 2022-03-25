@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::resource('posts', PostController::class)->only('index', 'store', 'show', 'update', 'destroy')->middleware('guest');
-Route::resource('comments', CommentController::class)->only('index', 'store', 'show', 'update', 'destroy')->middleware('guest');
+Route::middleware(['logging-api', 'guest'])->group(function () {
+    Route::resource('posts', PostController::class)->only('index', 'store', 'show', 'update', 'destroy');
+    Route::resource('comments', CommentController::class)->only('index', 'store', 'show', 'update', 'destroy');
+});

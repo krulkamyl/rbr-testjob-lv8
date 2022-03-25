@@ -2,13 +2,18 @@
 
 namespace App\Console;
 
+use App\Http\Repository\Eloquent\PostRepository;
+use App\Models\Post;
+use Carbon\Carbon;
 use Faker\Factory;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Http;
+use Spatie\Activitylog\Models\Activity;
 
 class Kernel extends ConsoleKernel
 {
+
     /**
      * Define the application's command schedule.
      *
@@ -25,6 +30,19 @@ class Kernel extends ConsoleKernel
                 'author' => $faker->userName().' CRON'
             ]);
         })->hourly();
+
+        $schedule->call(function () {
+            $postRepository = new PostRepository(new Post());
+            $activity = Activity::where('event', 'cron-adding')->latest('id')->first();
+            if (!$activity && $activity->created_at->diffInMinutes(now()) >= 36) {
+                Http::localhostApi()->post('comments', [
+                    'post_id' => $postRepository->randomPost()->id,
+                    'content' => 'tak',
+                    'author' => 'Bot cron'
+                ]);
+                activity()->event('cron-adding')->log('cron add new comment');
+            }
+        })->everyMinute();
     }
 
     /**
