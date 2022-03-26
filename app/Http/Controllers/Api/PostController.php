@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Repository\PostRepositoryInterface;
+use App\Repository\PostRepositoryInterface;
 use App\Http\Requests\PostRequest;
 
 class PostController extends Controller

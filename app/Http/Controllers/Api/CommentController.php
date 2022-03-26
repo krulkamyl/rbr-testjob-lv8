@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Repository\CommentRepositoryInterface;
+use App\Repository\CommentRepositoryInterface;
 use App\Http\Requests\CommentRequest;
 
 class CommentController extends Controller

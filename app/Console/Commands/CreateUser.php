@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Http\Repository\UserRepositoryInterface;
+use App\Repository\UserRepositoryInterface;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;

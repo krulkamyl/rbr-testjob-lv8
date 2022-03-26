@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Repository\Eloquent;
+namespace App\Repository\Eloquent;
 
-use App\Http\Repository\PostRepositoryInterface;
+use App\Repository\PostRepositoryInterface;
 use App\Models\Post;
 
 class PostRepository extends BaseRepository implements PostRepositoryInterface

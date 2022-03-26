@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Repository\UserRepositoryInterface;
-use Illuminate\Http\Request;
+use App\Repository\UserRepositoryInterface;
 
 class UserController extends Controller
 {

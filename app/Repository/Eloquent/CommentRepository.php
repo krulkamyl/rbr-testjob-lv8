@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Repository\Eloquent;
+namespace App\Repository\Eloquent;
 
-use App\Http\Repository\CommentRepositoryInterface;
+use App\Repository\CommentRepositoryInterface;
 use App\Models\Comment;
 use Illuminate\Pagination\LengthAwarePaginator;
 

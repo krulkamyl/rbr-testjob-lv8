@@ -2,9 +2,8 @@
 
 namespace App\Console;
 
-use App\Http\Repository\Eloquent\PostRepository;
+use App\Repository\Eloquent\PostRepository;
 use App\Models\Post;
-use Carbon\Carbon;
 use Faker\Factory;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

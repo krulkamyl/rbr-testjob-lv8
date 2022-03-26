@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Repository\CommentRepositoryInterface;
-use App\Models\Comment;
-use Illuminate\Http\Request;
+use App\Repository\CommentRepositoryInterface;
 
 class CommentController extends Controller
 {

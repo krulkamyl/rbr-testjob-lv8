@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Repository\Eloquent;
+namespace App\Repository\Eloquent;
 
-use App\Http\Repository\UserRepositoryInterface;
+use App\Repository\UserRepositoryInterface;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
